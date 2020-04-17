@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:QoD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns/custom" xsi:type="tns:QoD">
+  <tns:dataelementcompleteness>0.5874439461883408</tns:dataelementcompleteness>
+  <tns:datasetcompleteness>0.04349775784753363</tns:datasetcompleteness>
+</tns:QoD>

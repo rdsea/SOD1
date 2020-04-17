@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:dataAgreement xmlns:ns0="urn:de:icsy:dataagreement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <identification>
+      <agreementId>urn:de:icsyagreement:1</agreementId>
+      <dataAsset>urn:de:icsy:asset:wcs:1</dataAsset>
+      <dataSource>http://gdi-arc1.gridlab.uni-kl.de/arcgis01/services/Hamburg_WFS/MapServer/WCSServer?service=WCS</dataSource>
+      <dataAssetProvider>http://gdi-arc1.gridlab.uni-kl.de/arcgis01/services/Hamburg_WFS/MapServer/WCSServer?service=WCS</dataAssetProvider>
+      <dataAssetConsumer>urn:de:icsy:j_goetze</dataAssetConsumer>
+      <creationDate>2011-07-04T20:11:15.029Z</creationDate>
+      <dataAgreementExchangeService> http://sod.infosys.tuwien.ac.at:7101/services/jersey/DAES</dataAgreementExchangeService>
+      <agreementStatus>AGREED</agreementStatus>
+   </identification>
+   <extension>
+      <agreementReference agreementSchema="urn:de:icsy:license:wcs" category="licensing">
+         <content>http://sod.infosys.tuwien.ac.at:7101/services/jersey/DAES/da/references/retrieve/license_wcs</content>
+      </agreementReference>
+   </extension>
+</ns0:dataAgreement>

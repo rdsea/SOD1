@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<o-ex:rights xmlns:o-ex="http://odrl.net/1.1/ODRL-EX"
+             xmlns:o-dd="http://odrl.net/1.1/ODRL-DD"
+             xmlns:wcs="http://www.opengis.net/wcs"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation= "http://www.opengis.net/wcs http://schemas.opengis.net/wcs/1.0.0/getCoverage.xsd
+                                 http://odrl.net/1.1/ODRL-EX http://odrl.net/1.1/ODRL-EX-11.xsd
+                                 http://odrl.net/1.1/ODRL-DD http://odrl.net/1.1/ODRL-DD-11.xsd">
+<o-ex:offer>
+   <o-ex:asset o-ex:id="ASSET1">
+       <o-ex:context>
+           <o-dd:uid>WCS_ASSET1</o-dd:uid>
+           <wcs:request>
+               <wcs:getCoverage>
+                   <wcs:listOfLayers wcs:setFunction="subsetOf">
+                       <wcs:layer>composite</wcs:layer>
+                       <wcs:layer>amp</wcs:layer>
+                   </wcs:listOfLayers>
+                   <wcs:defaultZoomIn>
+                       <wcs:unrestricted/>
+                   </wcs:defaultZoomIn>
+                </wcs:getCoverage>
+           </wcs:request>
+           <o-dd:service>http://gdi-arc1.gridlab.uni-kl.de/arcgis01/services/Hamburg_WFS/MapServer/WCSServer?service=WCS</o-dd:service>
+       </o-ex:context>
+   </o-ex:asset>
+   <o-ex:asset o-ex:id="ASSET2">
+       <o-ex:context>
+           <o-dd:uid>WMS_ASSET2</o-dd:uid>
+           <wcs:request>
+               <wcs:getCoverage>
+                   <wcs:listOfLayers wcs:setFunction="include">
+                       <wcs:layer>criobe</wcs:layer>
+                   </wcs:listOfLayers>
+                   <wcs:defaultZoomIn>
+                       <wcs:maxMultiplicativeFactor>5</wcs:maxMultiplicativeFactor>
+                   </wcs:defaultZoomIn>
+                   <wcs:listOfBBoxes>
+                       <wcs:geographicBoundingBox>
+                           <wcs:westLongitude>-149.928742</wcs:westLongitude>
+                           <wcs:southLatitude>-17.500643</wcs:southLatitude>
+                           <wcs:eastLongitude>-149.890238</wcs:eastLongitude>
+                           <wcs:northLatitude>-17.471618</wcs:northLatitude>
+                           <wcs:zoomIn>
+                               <wcs:maxMultiplicativeFactor>1</wcs:maxMultiplicativeFactor>
+                           </wcs:zoomIn>
+                       </wcs:geographicBoundingBox>
+                       <wcs:geographicBoundingBox>
+                           <wcs:westLongitude>-149.788651</wcs:westLongitude>
+                           <wcs:southLatitude>-17.537058</wcs:southLatitude>
+                           <wcs:eastLongitude>-149.749546</wcs:eastLongitude>
+                           <wcs:northLatitude>-17.507470</wcs:northLatitude>
+                           <wcs:zoomIn>
+                               <wcs:unrestricted/>
+                           </wcs:zoomIn>
+                       </wcs:geographicBoundingBox>
+                   </wcs:listOfBBoxes>
+               </wcs:getCoverage>
+           </wcs:request>
+           <o-dd:service>http://gdi-arc1.gridlab.uni-kl.de/arcgis01/services/Hamburg_WFS/MapServer/WCSServer?service=WCS</o-dd:service>
+       </o-ex:context>
+   </o-ex:asset>
+   <o-ex:asset o-ex:id="ASSET3">
+       <o-ex:context>
+           <o-dd:uid>WMS_ASSET3</o-dd:uid>
+           <wcs:request>
+               <wcs:getCapabilities/>
+           </wcs:request>
+           <o-dd:service>http://gdi-arc1.gridlab.uni-kl.de/arcgis01/services/Hamburg_WFS/MapServer/WCSServer?service=WCS</o-dd:service>
+       </o-ex:context>
+   </o-ex:asset>
+   <o-ex:permission>
+       <o-ex:asset o-ex:idref="ASSET1"/>
+       <o-ex:asset o-ex:idref="ASSET3"/>
+       <o-dd:display/>
+       <o-dd:print/>
+   </o-ex:permission>
+   <o-ex:permission>
+       <o-ex:asset o-ex:idref="ASSET2"/>
+       <o-dd:display/>
+       <o-dd:print>
+           <o-ex:constraint>
+               <o-dd:count>50</o-dd:count>
+           </o-ex:constraint>
+       </o-dd:print>
+   </o-ex:permission>
+</o-ex:offer>
+</o-ex:rights>

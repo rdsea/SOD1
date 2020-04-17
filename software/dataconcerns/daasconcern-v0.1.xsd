@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns"
+            version="0.1"
+            xmlns:o-ex="http://odrl.net/1.1/ODRL-EX"
+            xmlns:sl="http://odrl.net/SL-10"
+            xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+            xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+            xmlns:p3p="http://www.w3.org/2002/01/P3Pv1"
+            elementFormDefault="qualified"
+            xmlns:tns="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns">
+    <xs:annotation>
+        <xs:documentation>
+            Copyright 2009, Hong-Linh Truong, Distributed Systems Group, Vienna University of Technology
+
+
+            This software is a part of the SOD1 framework. Please see
+            http://www.infosys.tuwien.ac.at/prototyp/SOD1/
+
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </xs:documentation>
+    </xs:annotation>
+    <!--xs:import namespace="http://schemas.xmlsoap.org/ws/2004/09/policy" schemaLocation="http://schemas.xmlsoap.org/ws/2004/09/policy/ws-policy.xsd"/>
+    <xs:import namespace="http://odrl.net/1.1/ODRL-DD" schemaLocation="http://odrl.net/1.1/ODRL-DD-11.xsd"/-->
+    <xs:import namespace="http://odrl.net/1.1/ODRL-EX" schemaLocation="http://odrl.net/1.1/ODRL-EX-11.xsd"/>
+    <xs:import namespace="http://odrl.net/SL-10" schemaLocation="http://www.infosys.tuwien.ac.at/prototyp/SOD1/software/dataconcerns/odrl-sl-10-v2.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
+    <xs:import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/TR/xmlenc-core/xenc-schema.xsd"/>
+    <xs:import namespace="http://www.w3.org/2002/01/P3Pv1" schemaLocation="http://www.w3.org/2002/01/P3Pv1.xsd"/>
+    <xs:complexType name="DaaS">
+        <xs:sequence>
+            <xs:element name="capabilityProperty" type="tns:Capability" minOccurs="0"/>
+            <xs:element name="serviceContextProperty" type="tns:ServiceContext" minOccurs="0"/>
+            <xs:element name="dataSourceProperty" type="tns:DataSource" minOccurs="0"/>
+            <xs:element name="baseContractTerms" type="tns:ServiceContract" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Capability">
+        <xs:sequence>
+            <xs:element name="qodProperty" type="tns:QoD" minOccurs="0"/>
+            <xs:element name="secprivProperty" type="tns:DataSecurityPrivacy" minOccurs="0"/>
+            <xs:element name="auditingProperty" type="tns:Auditing" minOccurs="0"/>
+            <xs:element name="dataLifecycleProperty" type="tns:DataLifecycle" minOccurs="0"/>
+            <xs:element name="qosProperty" type="tns:QoS" minOccurs="0"/>
+            <xs:element name="businessProperty" type="tns:Business" minOccurs="0"/>
+            <xs:element name="licenseProperty" type="tns:License" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceContext">
+        <xs:sequence>
+            <xs:element name="locationProperty" type="tns:Location" minOccurs="0"/>
+            <xs:element name="classificationProperty" type="tns:Classification" minOccurs="0"/>
+            <xs:element name="serviceTypeProperty" type="tns:ServiceType" minOccurs="0"/>
+            <xs:element name="levelofService" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="BestEffort"/>
+                        <xs:enumeration value="Guaranteed"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element ref="sl:evolution" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="QoD">
+        <xs:sequence>
+            <xs:element name="timeLine" type="tns:TimeLine" maxOccurs="unbounded" minOccurs="0"></xs:element>
+            <xs:element name="upToDate" type="xs:duration" minOccurs="0"></xs:element>
+            <xs:element name="objectivity" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="freeOfError" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="cleaning" type="tns:CleaningType" minOccurs="0"></xs:element>
+            <xs:element name="consistency" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="dataElementCompleteness" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="dataSetCompleteness" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="granularity" type="tns:DataGranularityType" minOccurs="0"></xs:element>
+            <xs:element name="domainspecificQoD" type="tns:DomainSpecificConcerns" maxOccurs="unbounded" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataSecurityPrivacy">
+        <xs:sequence>
+            <xs:element  ref="p3p:POLICY" minOccurs="0"/>
+            <xs:element name="security" type="tns:SecurityMetrics" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Auditing">
+        <xs:sequence>
+            <xs:element name="logging" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="reporting" type="tns:ReportingPeriod" minOccurs="0"/>
+            <xs:element name="warning" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataLifecycle">
+        <xs:sequence>
+            <xs:element name="backupRecovery" type="tns:BackupRecoveryCapability" minOccurs="0"></xs:element>
+            <xs:element name="distribution" type="tns:DistributionType" minOccurs="0"></xs:element>
+            <xs:element name="disposition" type="xs:boolean" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="QoS">
+        <xs:annotation>
+            <xs:documentation>
+                Based on Hong-Linh Truong, Robert Samborski, Thomas Fahringer:
+                Towards a Framework for Monitoring and Analyzing QoS Metrics of Grid Services.
+                e-Science 2006: 65
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="performance" type="tns:PerformanceMetrics" minOccurs="0"></xs:element>
+            <xs:element name="dependability" type="tns:DependabilityMetrics" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Business">
+        <xs:sequence>
+            <xs:element name="priceModel" minOccurs="0">
+                <!-- very simple at the moment. it should include also number of transactions, packages -->
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="pay-per-use"/>
+                        <xs:enumeration value="free-per-use"/>
+                        <xs:enumeration value="subscription"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="price" minOccurs="0">
+                <!-- to be included based on
+                Kelkar, O., Leukel, J., and Schmitz, V. 2002. Price modeling in standards
+                for electronic product catalogs based on XML. In Proceedings of the 11th
+                international Conference on World Wide Web (Honolulu, Hawaii, USA, May 07 - 11, 2002).
+                WWW '02. ACM, New York, NY, 366-375. DOI= http://doi.acm.org/10.1145/511446.511494
+                -->
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="serviceCredit" type="xs:boolean" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="License">
+        <xs:sequence>
+            <xs:element name="dataLicense" type="tns:LicenseTerms" minOccurs="0"></xs:element>
+            <xs:element name="serviceLicense" type="tns:LicenseTerms" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceContract">
+        <xs:sequence>
+            <xs:element name="schemaType" type="xs:string"/>
+            <xs:element name="contractLink" type="xs:anyURI"/>
+            <!--xs:element name="commonTerms" type="tns:ServiceContractCommonTerms"/>
+            <xs:element name="dataTerms" type="tns:ServiceContractDataTerms"/>
+            <xs:element name="serviceTerms" type="tns:ServiceContractServiceTerms"/-->
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DataSource">
+        <xs:sequence>
+            <xs:element name="dataSourceName" type="tns:DataSourceName" minOccurs="0"/>
+            <xs:element name="dataSourceSize" type="xs:string" minOccurs="0"/>
+            <xs:element name="dataSourceTimeSpan" type="xs:duration" minOccurs="0"/>
+            <xs:element name="dataSourceMetadata" type="tns:DomainSpecificConcerns" minOccurs="0"/>
+            <xs:element name="updateFrequency" type="xs:duration" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Location">
+        <!-- very simple, based on http://www.daml.org/2001/09/countries/fips-10-4-ont-->
+        <xs:sequence>
+            <xs:element name="countryName" type="xs:string" minOccurs="0"/>
+            <xs:element name="countryCode" type="xs:string" minOccurs="0"/>
+            <!-- more information such as region, city, etc. -->
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Classification">
+        <!-- simple way, based on a hierarchy of keywords -->
+        <xs:sequence>
+            <xs:element name="className" type="xs:string" maxOccurs="unbounded"></xs:element>
+            <xs:element name="subClass" type="tns:Classification" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <!--xs:complexType name="ServiceContractDataTerms">
+        <xs:sequence>
+            <xs:element ref="wsp:Policy"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceContractServiceTerms">
+        <xs:sequence>
+            <xs:element ref="wsp:Policy"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceContractCommonTerms">
+        <xs:sequence>
+            <xs:element ref="wsp:Policy"/>
+        </xs:sequence>
+    </xs:complexType-->
+    <xs:complexType name="DataSourceName">
+        <xs:sequence>
+            <!-- more information can be added -->
+            <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="location" type="xs:anyURI" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="ServiceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SOAP"/>
+            <xs:enumeration value="REST"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="TimeLine">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"></xs:element>
+            <xs:element name="from" type="xs:dateTime" minOccurs="0"></xs:element>
+            <xs:element name="to" type="xs:dateTime" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="CleaningType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Raw"/>
+            <xs:enumeration value="PartallyCleaning"/>
+            <xs:enumeration value="FullyCleaning"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DataGranularityType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="High"/>
+            <xs:enumeration value="Medium"/>
+            <xs:enumeration value="Low"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="DomainSpecificConcerns">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"></xs:element>
+            <xs:element name="domainName" type="xs:string"></xs:element>
+            <xs:element name="schemaType" type="xs:string"></xs:element>
+            <xs:element name="location" type="xs:anyURI"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="ReportingPeriod">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Daily"/>
+            <xs:enumeration value="Weakly"/>
+            <xs:enumeration value="Monthly"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="BackupRecoveryCapability">
+        <xs:sequence>
+            <xs:element name="backup" type="xs:boolean"></xs:element>
+            <xs:element name="backupLevel" type="xs:integer"></xs:element>
+            <xs:element name="recoveryTime" type="xs:duration"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="DistributionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Internal"/>
+            <xs:enumeration value="External"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TypicalUsagePermissionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="free-for-non-commercialuse"/>
+            <xs:enumeration value="free-for-all"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="permission" type="tns:TypicalUsagePermissionType" substitutionGroup="o-ex:permissionElement"/>
+    <xs:complexType name="UsagePermission">
+       
+        <xs:complexContent>
+            <xs:extension base="o-ex:permissionType">
+                <xs:sequence>
+
+
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!--xs:element name="type" substitutionGroup="o-ex:permissionElement"/-->
+    <xs:complexType name="LicenseTerms">
+        <!-- a close look at ODRL* is needed -->
+        <xs:sequence>
+            <xs:element name="lawEnforcement" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            <xs:element name="domainSpecificIPR" type="tns:DomainSpecificConcerns" minOccurs="0"></xs:element>
+            <xs:element ref="sl:adaptation" minOccurs="0"/>
+            <xs:element ref="sl:composition" minOccurs="0"/>
+            <xs:element ref="sl:derivation" minOccurs="0"/>
+            <xs:element ref="sl:indemnity" minOccurs="0"/>
+            <xs:element ref="sl:limitationofliability" minOccurs="0"/>
+            <xs:element name="copyright" type="o-ex:rightsHolderType" minOccurs="0"/>
+            <xs:element name="usagePermission" type="tns:UsagePermission" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="StartEndFrame">
+        <xs:sequence>
+            <xs:element name="earliestStartTime" type="xs:dateTime"></xs:element>
+            <xs:element name="latestSartTime" type="xs:dateTime"></xs:element>
+            <xs:element name="earliestEndTime" type="xs:dateTime"></xs:element>
+            <xs:element name="latestEndTime" type="xs:dateTime"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PerformanceMetrics">
+        <xs:sequence>
+            <xs:element name="responseTime" type="xs:double"></xs:element>
+            <xs:element name="latency" type="xs:double"></xs:element>
+            <xs:element name="startEndFrame" type="tns:StartEndFrame"/>
+                
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DependabilityMetrics">
+        <xs:sequence>
+            <xs:element name="managability" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="capability" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="reliability" type="xs:double" minOccurs="0"/>
+            <xs:element name="accessibility" type="xs:double" minOccurs="0"/>
+            <xs:element name="availability" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="security" type="tns:SecurityMetrics" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SecurityMetrics">
+        <xs:sequence>
+            <xs:element name="encryption" type="xenc:EncryptionMethodType" minOccurs="0"></xs:element>
+            <xs:element name="integrity" type="ds:SignatureMethodType" minOccurs="0"></xs:element>
+            <xs:element name="authenticaton" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="authorization" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="securityTransportLevel" type="xs:boolean" minOccurs="0"></xs:element>
+            <xs:element name="securityMessageLevel" type="xs:boolean" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="daas" type="tns:DaaS"/>
+</xs:schema>

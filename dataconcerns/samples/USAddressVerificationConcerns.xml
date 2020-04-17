@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : USAddressVerificationConcerns
+    Created on : July 28, 2009, 2:11 PM
+    Author     : Hong-Linh Truong
+    Description:
+        Samples describing concerns associated with StrikeIron US Address Verification Web Service 5.0.0
+        This is just a makeup example to illustrate the use of concerns.
+        It does not reflect the real properties of The StrikeIron US Address Verification Web Service 5.0.0
+-->
+
+<ns0:daas  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns0='http://www.infosys.tuwien.ac.at/SOD1/daasconcerns'
+   xsi:schemaLocation="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns http://www.infosys.tuwien.ac.at/prototyp/SOD1/software/dataconcerns/daasconcern-v0.1.xsd">
+<ns0:capabilityProperty>
+    <ns0:qodProperty>
+        <ns0:dataElementCompleteness>1</ns0:dataElementCompleteness>
+    </ns0:qodProperty>
+    <ns0:qosProperty>
+         <ns0:dependability>
+             <ns0:availability>0.99</ns0:availability>
+         </ns0:dependability>
+    </ns0:qosProperty>
+    <ns0:businessProperty>
+        <ns0:priceModel>pay-per-use</ns0:priceModel>
+        <ns0:serviceCredit>1</ns0:serviceCredit>
+    </ns0:businessProperty>
+    <ns0:licenseProperty>
+        <ns0:dataLicense>
+            <ns0:lawEnforcement>US</ns0:lawEnforcement>
+            <ns0:usagePermission>
+                    <ns0:permission>free-for-non-commercialuse</ns0:permission>
+                </ns0:usagePermission>
+        </ns0:dataLicense>
+    </ns0:licenseProperty>
+</ns0:capabilityProperty>
+<ns0:serviceContextProperty>
+    <ns0:locationProperty>
+        <ns0:countryName>US</ns0:countryName>
+    </ns0:locationProperty>
+    <ns0:serviceTypeProperty>SOAP</ns0:serviceTypeProperty>
+</ns0:serviceContextProperty>
+<ns0:dataSourceProperty>
+    <ns0:dataSourceName>
+        <ns0:name>DataFlux</ns0:name>
+        <ns0:location>US</ns0:location>
+    </ns0:dataSourceName>
+</ns0:dataSourceProperty>
+
+</ns0:daas>

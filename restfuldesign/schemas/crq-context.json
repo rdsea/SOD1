@@ -1,0 +1,21 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+{
+    "dc:title": "information about the description",
+    "dc:description": "the context in which the service can be used",
+    "dc:created": "time at which the information is created",
+    "crq.context": {
+        "crq.location":"location of the consumer",
+        "crq.classification": "the classification of the service",
+        "crq.levelofservice":"level of service",
+        "crq.liability":"limitation of liability",
+        "crq.lawenforcement":"law enforcement",
+        "crq.devicetype":"type of device supported",
+        "crq.servicepermission":"permission for service usage, (e.g., adaptation or composition)",
+        "crq.datapermission":"permission for the data, , free or commercial",
+        "crq.servicecopyright": "copyright associated with service APIs",
+        "crq.datacopyright": "copyright for data"
+    }
+}

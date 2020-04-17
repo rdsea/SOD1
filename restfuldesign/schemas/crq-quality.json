@@ -1,0 +1,30 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/*  dc - The Dublin Core Metadata Terms namespace - http://purl.org/dc/terms/
+ *  crq - The Context, Relevance, Quality Terms namespace -
+ *                           http://www.infosys.tuwien.ac.at/sod1/crq
+ */
+{
+    "dc:title": "title of the document",
+    "dc:description": "quality description",
+    "dc:created": "time at which the description is created",
+    "crq.qod": {
+        "crq.uptodateness": "up to dateness",
+        "crq.objectivity":"objectivity",
+        "crq.freeoferror":"free of error",
+        "crq.consistency":"consistency",
+        "crq.dataelementcompleteness":"data element completeness",
+        "crq.datasetcompleteness":"data set completeness",
+        "crq.domainspecificqod":"URI specifying domain specific info"
+    },
+    "crq.qos":
+    {
+        "crq.responsetime":"response time",
+        "crq.latency": "latency",
+        "crq.capability":"capability",
+        "crq.reliability":"reliability",
+        "crq.availability":"availability"
+    }
+}

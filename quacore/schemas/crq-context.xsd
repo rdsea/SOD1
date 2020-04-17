@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.infosys.tuwien.ac.at/prototype/SOD1/restfuldesign/schemas/crq-context.xsd"
+            version="0.1"
+            elementFormDefault="qualified"
+            xmlns:tns="http://www.infosys.tuwien.ac.at/prototype/SOD1/restfuldesign/schemas/crq-context.xsd">
+    <xs:annotation>
+        <xs:documentation>
+            Copyright 2009, Hong-Linh Truong, Distributed Systems Group, Vienna University of Technology
+
+
+            This software is a part of the SOD1 framework. Please see
+            http://www.infosys.tuwien.ac.at/prototyp/SOD1/
+
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </xs:documentation>
+    </xs:annotation>
+
+
+    <xs:complexType name="ServiceContext">
+        <xs:sequence>
+            <xs:element name="crq.location" type="xs:string" minOccurs="0"/>
+            <xs:element name="crq.classification" type="xs:string" minOccurs="0"/>
+            <xs:element name="crq.levelofservice" minOccurs="0"/>
+            <xs:element name="crq.lawenforcement" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            <xs:element name="crq.servicepermission" type="xs:string" minOccurs="0"/>
+            <xs:element name="crq.datapermission" type="xs:string" minOccurs="0"/>
+            <xs:element name="crq.liability" type="xs:string" minOccurs="0"/>
+            <xs:element name="crq.servicecopyright" type="xs:string" minOccurs="0"/>
+            <xs:element name="crq.datacopyright" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="crq.context" type="tns:ServiceContext"/>
+</xs:schema>

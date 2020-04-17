@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<compatibilityresult>
+  <validation agreementReference="twitterpolicy1" value="true"/>
+  <validation agreementReference="twitterpolicy2" value="true"/>
+  <compatibility>false</compatibility>
+</compatibilityresult>

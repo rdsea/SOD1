@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://www.w3.org/Submission/wadl/wadl.xsd"
+            xmlns="http://wadl.dev.java.net/2009/02"
+            xmlns:crqQuality="http://www.infosys.tuwien.ac.at/prototype/SOD1/restfuldesign/schemas/crq-quality.xsd"
+            xmlns:crqContext="http://www.infosys.tuwien.ac.at/prototype/SOD1/restfuldesign/schemas/crq-context.xsd">
+    <grammars>
+        <include href="http://www.infosys.tuwien.ac.at/prototype/SOD1/restfuldesign/schemas/crq-quality.xsd">
+            <doc title="Quality">
+                 grammar describing quality
+            </doc>
+        </include>
+        <include href="http://www.infosys.tuwien.ac.at/prototype/SOD1/restfuldesign/schemas/crq-context.xsd">
+            <doc title="Context">
+                 grammar describing context
+            </doc>
+        </include>
+    </grammars>
+
+
+    <resources base="http://localhost:8080/restfuldesign/resources">
+        <resource path="googleFluTrends">
+            <resource path="Austria">
+                <method href="#lookup"/>
+            </resource>
+            <method href="#lookup"/>
+        </resource>
+    </resources>
+    <method name="GET" id="lookup">
+        <doc xml:lang="en" title="Lookup flu data"/>
+        <request>
+            <param name="crq.qod" type="xsd:string" style="query" default="">
+                <doc xml:lang="en" title="used to obtain qod metrics"/>
+            </param>
+            <param name="crq.context" type="xsd:string" style="query" default="">
+                <doc xml:lang="en" title="used to obtain qos metrics"/>
+            </param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                <doc xml:lang="en" title="fludata"/>
+            </representation>
+            <representation href="#QualityPresentation"/>
+            <representation href="#ContextPresentation"/>
+        </response>
+    </method>
+
+    <representation id="QualityPresentation" element="crqQuality:crq.qod" mediaType="application/json">
+        <doc title="QoDDescription">
+           {"crq.qod": {
+                        "crq.datasetcompleteness": 0.10256410256410256,
+                        "crq.consistency": 1,
+                        "crq.uptodateness":5
+           }}
+        </doc>
+    </representation>
+    <representation id="ContextPresentation" element="crqContext:crq.context" mediaType="application/json">
+        <doc title="ContextDescription">
+            {"crq.context": {
+                        "crq.location": "Europe",
+                        "crq.datapermission":"free"
+           }}
+        </doc>
+    </representation>
+</application>

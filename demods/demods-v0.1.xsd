@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="0.1"
+           targetNamespace="http://www.infosys.tuwien.ac.at/prototype/SOD1/demods"
+           xmlns:demods="http://www.infosys.tuwien.ac.at/prototype/SOD1/demods"
+           elementFormDefault="qualified">
+    <xs:annotation>
+        <xs:documentation>
+            DEMODS Specification
+            Copyright 2011, Hong-Linh Truong, Quang-Hieu Vu, Tran-Vu Pham 
+
+
+            This software is a part of the SOD1 framework. Please see
+            http://www.infosys.tuwien.ac.at/prototyp/SOD1/
+
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:element name="demodscatalog" type="demods:DEMODSCatalog"/>
+
+    <xs:complexType name="DEMODSCatalog">
+        <xs:sequence>
+
+            <xs:element name="service" type="demods:DaaSService" minOccurs="0" maxOccurs="unbounded"/>
+
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="DaaSService">
+        <xs:sequence>
+
+            
+            <xs:element name="serviceuuid" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="servicename" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="serviceprovider" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="servicedescription" type="xs:string" minOccurs="1" maxOccurs="1"/>            
+            <xs:element name="servicecategory" type="demods:Category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="servicecreated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="serviceupdated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="api" type="demods:APIDescription" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="qos" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="cost" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/> 
+            <xs:element name="contract" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>   
+            <xs:element name="dataasset" type="demods:DataAssetDescription" minOccurs="0" maxOccurs="unbounded"/>
+         
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="APIDescription">
+        <xs:sequence>          
+            <xs:element name="apiuuid" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="apiname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="created" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="updated" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="apiinputs" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>              
+            <xs:element name="apioutputs" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>              
+            <xs:element name="apicost" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>    
+            <xs:element name="apicontract" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>             
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="DataAssetDescription">
+        <xs:sequence>
+            
+            <xs:element name="dataassetuuid" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetsize" type="xs:double" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetprovider" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetdescription" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetcategory" type="demods:Category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="datafields" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="datacost" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="dataassetversion" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetcreated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataassetupdated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="api" type="demods:APIDescription" minOccurs="0" maxOccurs="unbounded"/> 
+            <xs:element name="qod" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>            
+            <xs:element name="contract" type="demods:EntryContent" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+
+    </xs:complexType>
+     
+
+    <!-- this is used to describe data represented by an external model: rdf, xml, etc. -->
+    <xs:complexType name="EntryContent" mixed="true">
+        <xs:sequence>
+            <xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="src" type="xs:anyURI"/>
+    </xs:complexType>
+    <xs:complexType name="Category">
+        <xs:attribute name="term" type="xs:string" use="required"/>
+        <xs:attribute name="scheme" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="label" type="xs:string" use="optional"/>
+    </xs:complexType>     
+</xs:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>urn:uuid:c7433422-49d6-4588-816d-c001cf00e9df</id>
+    <updated>2008-03-25T16:28:15+01:00</updated>
+    <title>USAddressVerification Service</title>
+    <entry>
+        <id>urn:uuid:4c44c6f7-7ee8-4b90-8348-931c1ef3d97e</id>
+        <updated>2008-03-25T16:28:15+01:00</updated>
+        <published>2008-03-25T16:28:15+01:00</published>
+        <title>Interface</title>
+        <summary>WSDL Interface </summary>
+        <category label="Web Service Description" scheme="http://www.dmoz.org/Computers/Programming/Internet/Service-Oriented_Architecture/Web_Services/WSDL" term="Interface"/>
+        <content type="application/wsdl+xml" link="http://ws.strikeiron.com/USAddressVerification5?WSDL"/>
+    </entry>
+    <entry>
+        <title>DaaS Concerns</title>
+        <summary>Data Concerns</summary>
+        <category label="Data Concerns"  term="DaaSConcern"/>
+        <content type="application/xml" link="http://www.infosys.tuwien.ac.at/prototyp/SOD1/dataconcerns/samples/USAddressVerificationConcerns.xml"/>
+    </entry>
+</feed>

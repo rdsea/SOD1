@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dcp:dataresource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dcp="http://www.infosys.tuwien.ac.at/prototype/SOD1/dcp" xsi:type="dcp:DataResource">
+  <dcp:category label="Demographic and socioeconomic statistics"/>
+  <dcp:id>http://undata-api.appspot.com/data/query/Adult literacy rate (percent)</dcp:id>
+  <dcp:title>UN Data on Adult literacy rate</dcp:title>
+  <dcp:updated>2010-08-16T11:40:47.902Z</dcp:updated>
+  <dcp:entry>
+    <dcp:category term="DaaSConcerns" scheme="http://www.infosys.tuwien.ac.at/prototyp/SOD1/software/dataconcerns/daasconcern-v0.2.xsd"/>
+    <dcp:content type="application/xml">&lt;tns:QoD xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:tns=&quot;http://www.infosys.tuwien.ac.at/SOD1/daasconcerns/custom&quot; xsi:type=&quot;tns:QoD&quot;>
+  &lt;tns:dataelementcompleteness>0.5874439461883408&lt;/tns:dataelementcompleteness>
+  &lt;tns:datasetcompleteness>0.04349775784753363&lt;/tns:datasetcompleteness>
+&lt;/tns:QoD></dcp:content>
+    <dcp:id>id-1</dcp:id>
+    <dcp:published>2010-08-16T11:40:47.892Z</dcp:published>
+    <dcp:source>UNDataQoDEvaluator</dcp:source>
+    <dcp:summary>Demonstrated QoD metrics</dcp:summary>
+    <dcp:title>QoDMetrics</dcp:title>
+    <dcp:updated>2010-08-16T11:40:47.892Z</dcp:updated>
+  </dcp:entry>
+</dcp:dataresource>

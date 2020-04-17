@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<xsd:schema targetNamespace="http://odrl.net/SL-10" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:o-ex="http://odrl.net/1.1/ODRL-EX" xmlns:sl="http://odrl.net/SL-10"
+ xmlns:o-dd="http://odrl.net/1.1/ODRL-DD-11.xsd" 
+ elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+ <xsd:import namespace="http://odrl.net/1.1/ODRL-EX" schemaLocation="http://odrl.net/1.1/ODRL-EX-11.xsd"/>
+<xsd:import namespace="http://odrl.net/1.1/ODRL-DD" schemaLocation="http://odrl.net/1.1/ODRL-DD-11.xsd"/>
+ <xsd:element name="adaptation" type="o-ex:permissionType" substitutionGroup="o-ex:permissionElement"/>
+ <xsd:element name="composition" type="o-ex:permissionType"  substitutionGroup="o-ex:permissionElement"/>
+ <xsd:element name="derivation" type="o-ex:permissionType" substitutionGroup="o-ex:permissionElement"/>
+
+
+ <xsd:element name="warranty" substitutionGroup="o-ex:requirementElement">
+   <xsd:complexType>
+    <xsd:complexContent>
+     <xsd:extension base="o-ex:requirementType">
+      <xsd:sequence>
+       <xsd:element name="performance" minOccurs="0">
+        <xsd:complexType>
+         <xsd:sequence>
+          <xsd:element name="responsetime" type="xsd:decimal"/>
+          <xsd:element name="processtime" type="xsd:decimal"/>
+          <xsd:element name="latency" type="xsd:decimal"/>
+          <xsd:element name="throughput" type="xsd:decimal"/>
+       </xsd:sequence>
+      </xsd:complexType>
+     </xsd:element>
+     <xsd:element name="compliance" minOccurs="0">
+      <xsd:complexType>
+       <xsd:sequence>
+        <xsd:element name="resolutionrate" type="xsd:decimal"/>
+        </xsd:sequence> 
+      </xsd:complexType>
+     </xsd:element>
+     <xsd:element name="reliability" minOccurs="0">
+      <xsd:complexType>
+       <xsd:sequence>
+        <xsd:element name="utilization" type="xsd:decimal"/>
+        <xsd:element name="availabilityrate" type="xsd:decimal"/>
+        <xsd:element name="violationrate" type="xsd:decimal"/>
+       </xsd:sequence>
+      </xsd:complexType>
+     </xsd:element>
+     <xsd:element name="monitoring" minOccurs="0">
+      <xsd:complexType>
+       <xsd:sequence>
+        <xsd:element name="downtimefrequency" type="xsd:decimal"/>
+        </xsd:sequence> 
+      </xsd:complexType>
+     </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+     </xsd:complexContent> 
+   </xsd:complexType>
+ </xsd:element>
+ 
+ 
+  <xsd:element name="indemnity" substitutionGroup="o-ex:requirementElement">
+   <xsd:complexType>
+    <xsd:complexContent>
+     <xsd:extension base="o-ex:requirementType">
+      <xsd:sequence>
+       <xsd:element name="thirdpartyinfringementclaims" type="xsd:string" minOccurs="0">
+       </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+     </xsd:complexContent> 
+   </xsd:complexType>
+ </xsd:element>
+ 
+ 
+ 
+ <xsd:element name="limitationofliability" substitutionGroup="o-ex:requirementElement">
+   <xsd:complexType>
+    <xsd:complexContent>
+     <xsd:extension base="o-ex:requirementType">
+      <xsd:sequence>
+       <xsd:element name="provisioning" minOccurs="0">
+        <xsd:complexType>
+         <xsd:sequence>
+           <xsd:element name="infrastructuralerrors" type="xsd:string"/>
+           <xsd:element name="networkerrors" type="xsd:string"/>
+         </xsd:sequence>
+       </xsd:complexType>
+      </xsd:element>
+      </xsd:sequence>
+     </xsd:extension>
+     </xsd:complexContent> 
+   </xsd:complexType>
+ </xsd:element>
+ 
+ 
+ 
+  <xsd:element name="evolution" substitutionGroup="o-ex:permissionElement">
+   <xsd:complexType>
+    <xsd:complexContent>
+     <xsd:extension base="o-ex:permissionType">
+      <xsd:sequence>
+            <xsd:element name="maxupgrades" type="xsd:decimal"/>
+           <xsd:element name="maxversions" type="xsd:decimal"/>
+           <xsd:element name="substitutable" type="xsd:string"/>
+           <xsd:element name="generic" type="xsd:string"/>
+      </xsd:sequence>
+     </xsd:extension>
+     </xsd:complexContent> 
+   </xsd:complexType>
+ </xsd:element>
+ 
+</xsd:schema>

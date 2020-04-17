@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<feed xml:base="http://live.ineta.org/InetaLiveService.svc/"
+      xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+      xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+      xmlns="http://www.w3.org/2005/Atom" xmlns:da="urn:de:icsy:dataagreement"
+      >
+  <title type="text">LivePresentations</title>
+  <id>http://live.ineta.org/InetaLiveService.svc/LivePresentations</id>
+  <updated>2011-07-04T15:16:45Z</updated>
+  <link rel="self" title="LivePresentations" href="LivePresentations"/>
+  <entry>
+    <id>http://live.ineta.org/InetaLiveService.svc/LivePresentations(1)</id>
+    <title type="text"></title>
+    <updated>2011-07-04T15:16:45Z</updated>
+    <author>
+      <name/>
+    </author>
+    <link rel="edit" title="LivePresentation" href="LivePresentations(1)"/>
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/LiveVideos"
+          type="application/atom+xml;type=feed" title="LiveVideos"
+          href="LivePresentations(1)/LiveVideos"/>
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/LiveTags"
+          type="application/atom+xml;type=feed" title="LiveTags"
+          href="LivePresentations(1)/LiveTags"/>
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/LiveAuthors"
+          type="application/atom+xml;type=feed" title="LiveAuthors"
+          href="LivePresentations(1)/LiveAuthors"/>
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/LiveGroup"
+          type="application/atom+xml;type=entry" title="LiveGroup"
+          href="LivePresentations(1)/LiveGroup"/>
+    <category term="INETALivePublicModel.LivePresentation"
+              scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
+    <content type="application/xml">
+      <m:properties>
+        <d:PresentationID m:type="Edm.Int32">1</d:PresentationID>
+        <d:Title>Expression Blend 4</d:Title>
+        <d:DeliveredOn m:type="Edm.DateTime">2010-05-08T00:00:00</d:DeliveredOn>
+        <d:Abstract>Blend 4 - Let's get started with Blend Come join us to learn
+                    the Blend UI and see how far Blend can take your XAML
+                    projects. We will cover the controls and settings within
+                    Blend to give you a basic foundation to move forward from.
+                    Although many things will be touched upon in order to show
+                    off the gui controls, this talk is not a deep dive into
+                    XAML, building complex controls, or live data integration.
+                    It is a good foundation for those discussions to follow.</d:Abstract>
+        <d:GroupID m:type="Edm.Int32">1</d:GroupID>
+        <da:category m:type="Edm.String">licensing</da:category>
+        <da:agreementSchema m:type="Edm.String">licensing</da:agreementSchema>
+        <da:content m:type="Edm.String">licensing</da:content>
+      </m:properties>
+    </content>
+  </entry>
+</feed>

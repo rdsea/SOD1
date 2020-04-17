@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="">
+    <servicecatalog xmlns="#">
+      <rdf:Description rdf:about="#servicecatalog">
+        <service>
+          <rdf:Description rdf:about="#servicecatalog/service">
+            <id>
+              <rdf:Description rdf:about="#servicecatalog/service/id">
+                <rdf:value>urn:uuid:c7433422-49d6-4588-816d-c001cf00e9df</rdf:value>
+              </rdf:Description>
+            </id>
+            <rdf:_1>
+              <rdf:Description rdf:about="#servicecatalog/service/id"/>
+            </rdf:_1>
+            <updated>
+              <rdf:Description rdf:about="#servicecatalog/service/updated">
+                <rdf:value>2009-09-25T16:28:15+01:00</rdf:value>
+              </rdf:Description>
+            </updated>
+            <rdf:_2>
+              <rdf:Description rdf:about="#servicecatalog/service/updated"/>
+            </rdf:_2>
+            <title>
+              <rdf:Description rdf:about="#servicecatalog/service/title">
+                <rdf:value>CorteraCreditPulse Service</rdf:value>
+              </rdf:Description>
+            </title>
+            <rdf:_3>
+              <rdf:Description rdf:about="#servicecatalog/service/title"/>
+            </rdf:_3>
+            <entry>
+              <rdf:Description rdf:about="#servicecatalog/service/entry">
+                <id>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/id">
+                    <rdf:value>urn:uuid:4c44c6f7-7ee8-4b90-8348-931c1ef3d97e</rdf:value>
+                  </rdf:Description>
+                </id>
+                <rdf:_1>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/id"/>
+                </rdf:_1>
+                <updated>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/updated">
+                    <rdf:value>2009-09-25T16:28:15+01:00</rdf:value>
+                  </rdf:Description>
+                </updated>
+                <rdf:_2>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/updated"/>
+                </rdf:_2>
+                <published>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/published">
+                    <rdf:value>2009-09-25T16:28:15+01:00</rdf:value>
+                  </rdf:Description>
+                </published>
+                <rdf:_3>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/published"/>
+                </rdf:_3>
+                <title>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/title">
+                    <rdf:value>Interface</rdf:value>
+                  </rdf:Description>
+                </title>
+                <rdf:_4>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/title"/>
+                </rdf:_4>
+                <summary>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/summary">
+                    <rdf:value>WSDL Interface </rdf:value>
+                  </rdf:Description>
+                </summary>
+                <rdf:_5>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/summary"/>
+                </rdf:_5>
+                <category>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/category">
+                    <label>Web Service Description</label>
+                    <scheme>http://www.dmoz.org/Computers/Programming/Internet/Service-Oriented_Architecture/Web_Services/WSDL</scheme>
+                    <term>Interface</term>
+                  </rdf:Description>
+                </category>
+                <rdf:_6>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/category"/>
+                </rdf:_6>
+                <content>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/content">
+                    <type>application/wsdl+xml</type>
+                    <link>http://ws.strikeiron.com/CorteraCreditPulse2?WSDL</link>
+                  </rdf:Description>
+                </content>
+                <rdf:_7>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry/content"/>
+                </rdf:_7>
+              </rdf:Description>
+            </entry>
+            <rdf:_4>
+              <rdf:Description rdf:about="#servicecatalog/service/entry"/>
+            </rdf:_4>
+            <entry>
+              <rdf:Description rdf:about="#servicecatalog/service/entry_2">
+                <title>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/title">
+                    <rdf:value>DaaS Concerns</rdf:value>
+                  </rdf:Description>
+                </title>
+                <rdf:_1>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/title"/>
+                </rdf:_1>
+                <summary>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/summary">
+                    <rdf:value>Data Concerns</rdf:value>
+                  </rdf:Description>
+                </summary>
+                <rdf:_2>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/summary"/>
+                </rdf:_2>
+                <category>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/category">
+                    <label>Data Concerns</label>
+                    <term>DaaSConcern</term>
+                  </rdf:Description>
+                </category>
+                <rdf:_3>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/category"/>
+                </rdf:_3>
+                <content>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/content">
+                    <type>application/xml</type>
+                    <link>http://www.infosys.tuwien.ac.at/prototyp/SOD1/dataconcerns/samples/daasconcerns-sample1.rdf</link>
+                  </rdf:Description>
+                </content>
+                <rdf:_4>
+                  <rdf:Description rdf:about="#servicecatalog/service/entry_2/content"/>
+                </rdf:_4>
+              </rdf:Description>
+            </entry>
+            <rdf:_5>
+              <rdf:Description rdf:about="#servicecatalog/service/entry_2"/>
+            </rdf:_5>
+          </rdf:Description>
+        </service>
+      </rdf:Description>
+    </servicecatalog>
+  </rdf:Description>
+</rdf:RDF>

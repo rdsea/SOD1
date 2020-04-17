@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="0.1"
+           targetNamespace="http://www.infosys.tuwien.ac.at/prototype/SOD1/dcp"
+           xmlns:dcp="http://www.infosys.tuwien.ac.at/prototype/SOD1/dcp"
+           elementFormDefault="qualified"
+           xmlns:daas="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns">
+    <xs:annotation>
+        <xs:documentation>
+            Data Concerns Publishing Specification
+            Copyright 2010, Hong-Linh Truong, Distributed Systems Group, Vienna University of Technology
+
+
+            This software is a part of the SOD1 framework. Please see
+            http://www.infosys.tuwien.ac.at/prototyp/SOD1/
+
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </xs:documentation>
+        <xs:documentation>
+            Partially based on ATOM feed
+        </xs:documentation>
+    </xs:annotation>
+    <xs:element name="servicecatalog" type="dcp:ServiceCatalog"/>
+
+    <xs:element name="entry" type="dcp:Entry"/>
+    <xs:complexType name="ServiceCatalog">
+        <xs:sequence>
+
+            <xs:element name="service" type="dcp:Service" minOccurs="0" maxOccurs="unbounded"/>
+
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="Service">
+        <xs:sequence>
+
+            <xs:element name="category" type="dcp:Category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="id" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="updated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="entry" type="dcp:Entry" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="operation" type="dcp:ServiceOperation" minOccurs="0" maxOccurs="unbounded"/>
+            <!--xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/-->
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="ServiceOperation">
+        <xs:sequence>
+
+            <xs:element name="category" type="dcp:Category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="id" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="updated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="entry" type="dcp:Entry" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="dataresource" type="dcp:DataResource" minOccurs="0" maxOccurs="unbounded"/>
+            <!--xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/-->
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="DataResource">
+        <xs:sequence>
+
+            <xs:element name="category" type="dcp:Category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="id" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="updated" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="entry" type="dcp:Entry" minOccurs="0" maxOccurs="unbounded"/>
+            <!--xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/-->
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="Entry">
+
+        <xs:sequence>
+
+            <xs:element name="category" type="dcp:Category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="content" type="dcp:EntryContent" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="id" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="published" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="summary" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="updated" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+            <!--xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/-->
+        </xs:sequence>
+
+
+    </xs:complexType>
+    <xs:complexType name="EntryContent" mixed="true">
+
+
+        <xs:element>
+            <xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:element>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="src" type="xs:anyURI"/>
+    </xs:complexType>
+    <xs:complexType name="Category">
+        <xs:attribute name="term" type="xs:string" use="required"/>
+        <xs:attribute name="scheme" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="label" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+</xs:schema>

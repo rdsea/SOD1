@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:daasprivacy="http://www.infosys.tuwien.ac.at/SOD1/dataconcerns/daasprivacy.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.infosys.tuwien.ac.at/SOD1/dataconcerns/daasprivacy.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="ObjectionRight">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DataRight"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Service">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Scope"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PDT"/>
+  <owl:Class rdf:ID="AccessRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ServiceOperation">
+    <rdfs:subClassOf rdf:resource="#Scope"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DataResource">
+    <rdfs:subClassOf rdf:resource="#Scope"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PrivacyOperation"/>
+  <owl:Class rdf:ID="InformationRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NotificationRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CustomPDT">
+    <rdfs:subClassOf rdf:resource="#PDT"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DomainIndependentPDT">
+    <rdfs:subClassOf rdf:resource="#PDT"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DataPrivacyCapabilities"/>
+  <owl:Class rdf:ID="IntegrityRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DomainSpecificPDT">
+    <rdfs:subClassOf rdf:resource="#PDT"/>
+  </owl:Class>
+  <owl:Class rdf:ID="UsageRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DistributionRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PDTContent"/>
+  <owl:Class rdf:ID="DataElement">
+    <rdfs:subClassOf rdf:resource="#PDTContent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LinkageRight">
+    <rdfs:subClassOf rdf:resource="#DataRight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DataPrivacyCapability"/>
+  <owl:Class rdf:ID="PrivacyCondition"/>
+  <owl:ObjectProperty rdf:ID="hasDataField">
+    <rdfs:domain rdf:resource="#PDT"/>
+    <rdfs:range rdf:resource="#PDTContent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dataPrivacyCapability">
+    <rdfs:domain rdf:resource="#DataPrivacyCapabilities"/>
+    <rdfs:range rdf:resource="#DataPrivacyCapability"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="includes">
+    <rdfs:domain rdf:resource="#PDT"/>
+    <rdfs:range rdf:resource="#PDT"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasScope">
+    <rdfs:range rdf:resource="#Scope"/>
+    <rdfs:domain rdf:resource="#DataPrivacyCapability"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDataPermission">
+    <rdfs:domain rdf:resource="#PrivacyCondition"/>
+    <rdfs:range rdf:resource="#DataRight"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPrivacyCondition">
+    <rdfs:domain rdf:resource="#DataPrivacyCapability"/>
+    <rdfs:range rdf:resource="#PrivacyCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isAppliedByPrivacyOperation">
+    <rdfs:range rdf:resource="#PrivacyOperation"/>
+    <rdfs:domain rdf:resource="#PrivacyCondition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="appliesTo">
+    <rdfs:domain rdf:resource="#PrivacyCondition"/>
+    <rdfs:range rdf:resource="#PDT"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#PrivacyCondition"/>
+          <owl:Class rdf:about="#PrivacyOperation"/>
+          <owl:Class rdf:about="#DataPrivacyCapability"/>
+          <owl:Class rdf:about="#DataRight"/>
+          <owl:Class rdf:about="#PDT"/>
+          <owl:Class rdf:about="#DataPrivacyCapabilities"/>
+          <owl:Class rdf:about="#Scope"/>
+          <owl:Class rdf:about="#PDTContent"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/identifier">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the name of data element</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DataElement"/>
+          <owl:Class rdf:about="#PrivacyOperation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/subject">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PDT"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >describe the domain name</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/publisher">
+    <rdfs:domain rdf:resource="#DataPrivacyCapabilities"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="isAllowed">
+    <rdfs:domain rdf:resource="#DataRight"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/rights">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#DataRight"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/LanguageScheme">
+    <rdfs:domain rdf:resource="#PDTContent"/>
+  </owl:DatatypeProperty>
+  <daasprivacy:DataPrivacyCapabilities rdf:ID="DataPrivacyCapabilities_13">
+    <dc:publisher rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ECOWS2010 tester</dc:publisher>
+    <daasprivacy:dataPrivacyCapability>
+      <daasprivacy:DataPrivacyCapability rdf:ID="DataPrivacyCapability_11">
+        <daasprivacy:hasPrivacyCondition>
+          <daasprivacy:PrivacyCondition rdf:ID="PrivacyCondition_12">
+            <daasprivacy:isAppliedByPrivacyOperation>
+              <daasprivacy:PrivacyOperation rdf:ID="ReplaceByNULL">
+                <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >replacebyNULL</dc:identifier>
+              </daasprivacy:PrivacyOperation>
+            </daasprivacy:isAppliedByPrivacyOperation>
+            <daasprivacy:hasDataPermission>
+              <daasprivacy:LinkageRight rdf:ID="LinkageRight_10">
+                <daasprivacy:isAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</daasprivacy:isAllowed>
+              </daasprivacy:LinkageRight>
+            </daasprivacy:hasDataPermission>
+            <daasprivacy:hasDataPermission>
+              <daasprivacy:UsageRight rdf:ID="UsageRight_8">
+                <daasprivacy:isAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</daasprivacy:isAllowed>
+                <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >non-commercial</dc:rights>
+              </daasprivacy:UsageRight>
+            </daasprivacy:hasDataPermission>
+            <daasprivacy:hasDataPermission>
+              <daasprivacy:DistributionRight rdf:ID="DistributionRight_9">
+                <daasprivacy:isAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</daasprivacy:isAllowed>
+              </daasprivacy:DistributionRight>
+            </daasprivacy:hasDataPermission>
+            <daasprivacy:appliesTo>
+              <daasprivacy:CustomPDT rdf:ID="CustomPDT_7">
+                <dc:subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >socialnetwork</dc:subject>
+                <daasprivacy:hasDataField>
+                  <daasprivacy:DataElement rdf:ID="SocialNetworkName">
+                    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >name</dc:identifier>
+                  </daasprivacy:DataElement>
+                </daasprivacy:hasDataField>
+                <daasprivacy:hasDataField>
+                  <daasprivacy:DataElement rdf:ID="InReplyToObject">
+                    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >in_reply_to_screen_name</dc:identifier>
+                    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >in_reply_to_user_id</dc:identifier>
+                  </daasprivacy:DataElement>
+                </daasprivacy:hasDataField>
+                <daasprivacy:hasDataField>
+                  <daasprivacy:DataElement rdf:ID="SocialNetworkID">
+                    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >in_reply_to_user_id</dc:identifier>
+                    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >ID</dc:identifier>
+                  </daasprivacy:DataElement>
+                </daasprivacy:hasDataField>
+              </daasprivacy:CustomPDT>
+            </daasprivacy:appliesTo>
+          </daasprivacy:PrivacyCondition>
+        </daasprivacy:hasPrivacyCondition>
+        <daasprivacy:hasScope>
+          <daasprivacy:DataResource rdf:ID="TwitterDataResource"/>
+        </daasprivacy:hasScope>
+      </daasprivacy:DataPrivacyCapability>
+    </daasprivacy:dataPrivacyCapability>
+  </daasprivacy:DataPrivacyCapabilities>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

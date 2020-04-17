@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+edited with XMLSpy v2011 rel. 3 (x64) (http://www.altova.com) by Joachim Goetze and Tino Fleuren (University of Kaiserslautern) 
+and Hong-Linh Truong (Vienna University of Technology)
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:de:icsy:dataagreement"
+           targetNamespace="urn:de:icsy:dataagreement">
+ <xs:element name="dataAgreement" type="dataAgreementType">
+  <xs:annotation>
+   <xs:documentation>Comment describing your root element</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:complexType name="identificationType">
+  <xs:sequence>
+   <xs:element name="agreementId" type="xs:anyURI" nillable="false"/>
+   <xs:element name="dataAsset" type="xs:anyURI" nillable="false"/>
+   <xs:element name="dataSource" type="xs:anyURI" nillable="false"/>
+   <xs:element name="dataAssetProvider" type="xs:anyURI" nillable="false"/>
+   <xs:element name="dataAssetConsumer" type="xs:anyURI" nillable="false"/>
+   <xs:element name="creationDate" type="xs:dateTime" nillable="false"/>
+   <xs:element name="dataAgreementExchangeService" type="xs:anyURI"
+               nillable="false"/>
+   <xs:element name="agreementStatus" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="agreementType">
+  <xs:sequence>
+   <xs:element name="content" type="xs:anyType"/>
+   </xs:sequence>
+    <xs:attribute name="agreementSchema" type="xs:anyURI" use="required"/>
+    <xs:attribute name="category" type="xs:string"/>   
+  
+ </xs:complexType>
+ <xs:complexType name="agreementReferenceType">
+  <xs:sequence>
+   <xs:element name="content" type="xs:anyURI"/>
+   </xs:sequence>
+    <xs:attribute name="agreementSchema" type="xs:anyURI" use="required"/>
+    <xs:attribute name="category" type="xs:string"/>      
+ </xs:complexType>
+ <xs:complexType name="extensionType">
+  <xs:sequence>
+   <xs:element name="agreement" minOccurs="0" maxOccurs="unbounded"
+               type="agreementType"></xs:element>
+   <xs:element name="agreementReference" minOccurs="0" maxOccurs="unbounded"
+               type="agreementReferenceType"></xs:element>
+    </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="dataAgreementType">
+  <xs:sequence>
+   <xs:element name="identification" type="identificationType"/>
+   <xs:element name="extension" type="extensionType" />
+  </xs:sequence>
+ </xs:complexType>
+</xs:schema>

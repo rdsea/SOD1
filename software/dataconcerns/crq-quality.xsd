@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns/custom"
+           version="0.1"
+           elementFormDefault="qualified"
+           xmlns:tns="http://www.infosys.tuwien.ac.at/SOD1/daasconcerns/custom">
+    <xs:annotation>
+        <xs:documentation>
+            Copyright 2010, Hong-Linh Truong, Distributed Systems Group, Vienna University of Technology
+
+
+            This software is a part of the SOD1 framework. Please see
+            http://www.infosys.tuwien.ac.at/prototyp/SOD1/
+
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType name="Quality">
+        <xs:sequence>
+            <xs:element ref="tns:qod"  minOccurs="0"/>
+            <xs:element ref="tns:qos"  minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="QoD">
+        <xs:sequence>
+            <xs:element name="uptodateness" type="xs:duration" minOccurs="0"></xs:element>
+            <xs:element name="consistency" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="dataelementcompleteness" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="datasetcompleteness" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="domainspecificqod" type="tns:DomainSpecificQoD" maxOccurs="unbounded" minOccurs="0"/>               
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DomainSpecificQoD">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="value" type="xs:anySimpleType"/>
+                </xs:sequence>
+            </xs:complexType>
+    <xs:complexType name="QoS">
+        <xs:annotation>
+            <xs:documentation>
+                Based on Hong-Linh Truong, Robert Samborski, Thomas Fahringer:
+                Towards a Framework for Monitoring and Analyzing QoS Metrics of Grid Services.
+                e-Science 2006: 65
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="responsetime" type="xs:double"></xs:element>
+            <xs:element name="latency" type="xs:double"></xs:element>
+            <xs:element name="capability" type="xs:double" minOccurs="0"></xs:element>
+            <xs:element name="reliability" type="xs:double" minOccurs="0"/>
+            <xs:element name="availability" type="xs:double" minOccurs="0"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:element name="qod" type="tns:QoD"/>
+    <xs:element name="qos" type="tns:QoS"/>
+    <xs:element name="quality" type="tns:Quality"/>
+</xs:schema>
