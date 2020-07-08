@@ -1,6 +1,6 @@
-# Service-Oriented Data and Computation Fusion
+# Service-Oriented Data and Computation: Concerns and Contracts
 
-Using service-oriented technologies we could help to integrate a vast sources of data and compute resources for supporting scientists to perform their research. Our motivation is that currently computational science and engineering scientists from different disciplines face a big challenge in sharing  their data, models and application capabilities  to support reproducible experiments while retaining their rights, such as privacy and licensing, and complying with the rules of using these data, models and application capabilities.
+Using service-oriented technologies we could help to integrate a vast sources of data and compute resources for supporting scientists to perform their research. Our motivation is that currently scientists from different disciplines face a big challenge in sharing  their data, models and application capabilities  to support reproducible experiments while retaining their rights, such as privacy and licensing, and complying with the rules of using these data, models and application capabilities.
 
 ## Collection of works
 This repository contains a collection of works to support the above-mentioned issues.
